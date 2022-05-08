@@ -29,7 +29,10 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public User login(String userName, String password) {
         // 根据用户名、密码查询用户信息。
-
-        return userDao.selectByUserNameAndPassword(userName, password);
+        User user=userDao.selectByUserNameAndPassword(userName, password);
+        if(user.getUserId()==null){
+            throw new RuntimeException("用户名或密码错误");
+        }
+        return user ;
     }
 }
