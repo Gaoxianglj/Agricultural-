@@ -15,7 +15,15 @@
         from User
         where user_name=#{userName} and password=#{password}
     </select>
+    <insert id="registration">
+        insert into User(user_name, password, phone_number, real_name) VALUES (
+      #{user.userName},
+      #{user.password},
+      #{user.phoneNumber},
+      #{user.realName}
 
+                                                                              )
+    </insert>
     <!--查询指定行数据-->
 <!--    <select id="queryAllByLimit" resultMap="UserMap">-->
 <!--        select-->

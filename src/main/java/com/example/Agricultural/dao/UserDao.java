@@ -21,7 +21,12 @@ public interface UserDao {
      * @return 实例对象
      */
     User selectByUserNameAndPassword(@Param("userName")String userName, @Param("password") String password);
-
+    /**
+     * 注册账号
+     *
+     * @param user 用户实体类
+     */
+    int registration(@Param("user") User user);
 
 }
 
