@@ -4,13 +4,14 @@ import com.example.Agricultural.exception.BusinessFailureException;
 import com.example.Agricultural.requestdto.RegistrationFrom;
 import com.example.Agricultural.service.RegistrationService;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-
+@CrossOrigin
 @RestController
 public class RegistrationController {
     @Resource

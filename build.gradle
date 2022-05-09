@@ -15,6 +15,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.alibaba:fastjson:1.2.5'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
     implementation 'org.springframework.boot:spring-boot-starter:2.6.4'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.4'

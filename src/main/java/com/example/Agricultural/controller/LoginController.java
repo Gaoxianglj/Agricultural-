@@ -4,7 +4,9 @@ import com.example.Agricultural.entity.User;
 import com.example.Agricultural.exception.BusinessFailureException;
 import com.example.Agricultural.requestdto.LoginForm;
 import com.example.Agricultural.service.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +17,7 @@ import javax.validation.Valid;
 /**
  * 登录接口处理器。
  */
+@CrossOrigin
 @RestController
 public class LoginController {
 
