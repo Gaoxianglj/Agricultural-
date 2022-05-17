@@ -27,6 +27,10 @@ public interface UserDao {
      * @param user 用户实体类
      */
     int registration(@Param("user") User user);
-
+    /**
+     * 查询所有用户。
+     *
+     */
+    User[] SelectAllUser();
 }
 

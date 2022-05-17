@@ -27,6 +27,7 @@ public class WebSocketServer {
     private String name;
     @OnOpen
     public void open(@PathParam("name") String name, Session session){
+
         map.put(name,this);
         System.out.println(name+"连接服务器成功");
         System.out.println("客户端连接个数:"+getConnetNum());

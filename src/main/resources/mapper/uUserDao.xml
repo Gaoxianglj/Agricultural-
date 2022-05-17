@@ -24,6 +24,9 @@
 
                                                                               )
     </insert>
+    <select id="SelectAllUser" resultType="com.example.Agricultural.entity.User">
+        select * from User
+    </select>
     <!--查询指定行数据-->
 <!--    <select id="queryAllByLimit" resultMap="UserMap">-->
 <!--        select-->
