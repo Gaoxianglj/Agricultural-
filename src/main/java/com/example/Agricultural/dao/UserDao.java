@@ -36,5 +36,7 @@ public interface UserDao {
      * 查询用户名
      */
     String SelectUserName(@Param("userId")Integer userId);
+
+    User SelectUserForId(@Param("userId") Integer userId);
 }
 

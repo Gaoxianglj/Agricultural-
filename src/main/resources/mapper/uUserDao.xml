@@ -30,6 +30,9 @@
     <select id="SelectUserName" resultType="string">
         select user_name from User where user_id=#{userId}
     </select>
+    <select id="SelectUserForId" resultType="com.example.Agricultural.entity.User">
+        select user_id,user_name,phone_number,real_name from User where user_id=#{userId, jdbcType=INTEGER}
+    </select>
     <!--查询指定行数据-->
 <!--    <select id="queryAllByLimit" resultMap="UserMap">-->
 <!--        select-->
