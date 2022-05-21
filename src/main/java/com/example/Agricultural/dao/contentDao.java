@@ -1,10 +1,14 @@
 package com.example.Agricultural.dao;
 
+import com.example.Agricultural.entity.Content;
+import com.example.Agricultural.entity.Functional.ContentForHomePage;
 import com.example.Agricultural.requestdto.PutArticlesForm;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Mapper
 public interface contentDao {
     /**
@@ -15,4 +19,16 @@ public interface contentDao {
      * @param time 发布时间
      */
     public int insertToArticles(@Param("form") PutArticlesForm form,@Param("releaseTime") LocalDateTime time);
+
+    /**
+     * 查询所有内容。
+     *
+     * @return 内容串
+     */
+    public List<ContentForHomePage> SelectAllContent();
+
+    /**
+     * 查询其关注者的视频内容
+     */
+    public List<ContentForHomePage> SelectUpContent(@Param("UpUserId")Integer UpUserId);
 }
