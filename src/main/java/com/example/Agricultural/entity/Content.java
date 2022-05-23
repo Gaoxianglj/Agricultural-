@@ -38,6 +38,17 @@ public class Content implements Serializable {
      */
     private String contentLabel;
 
+    /**
+     *
+     * 视频url
+     */
+    private String videoUrl;
+
+    /**
+     *
+     * 点赞数
+     */
+    private Integer likenum;
 
     public Integer getContentId() {
         return contentId;
@@ -95,5 +106,20 @@ public class Content implements Serializable {
         this.contentLabel = contentLabel;
     }
 
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    public Integer getLikenum() {
+        return likenum;
+    }
+
+    public void setLikenum(Integer likenum) {
+        this.likenum = likenum;
+    }
 }
 

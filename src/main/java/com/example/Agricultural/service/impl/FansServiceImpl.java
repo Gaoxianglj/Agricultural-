@@ -16,6 +16,11 @@ public class FansServiceImpl implements FansService {
     @Resource
     UserDao userDao;
 
+    /**
+     * 查询关注你的人
+     * @param userId 用户id
+     * @return 关注你的人的列表
+     */
     @Override
     public List<User> MyFans(Integer userId) {
         List<User> userList=new ArrayList<>();
@@ -24,7 +29,7 @@ public class FansServiceImpl implements FansService {
         }
        List<String> fansUserIdList=fansDao.SelectFansUserIdList(userId);
         for(String fansUserId:fansUserIdList){
-            User user=userDao.SelectUserForId(userId);
+            User user=userDao.SelectUserForId(Integer.valueOf(fansUserId));
             user.setPassword(null);
             userList.add(user);
         }

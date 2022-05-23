@@ -1,5 +1,7 @@
 package com.example.Agricultural.requestdto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -12,6 +14,8 @@ public class PutArticlesForm {
     String title;
     //详细内容
     String detail;
+
+
 
     public Integer getUserId() {
         return userId;
@@ -36,4 +40,6 @@ public class PutArticlesForm {
     public void setDetail(String detail) {
         this.detail = detail;
     }
+
+
 }

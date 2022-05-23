@@ -6,7 +6,7 @@ package com.example.Agricultural.entity.Functional;
  * */
 public class ContentForHomePage {
     //发布者用户名
-    String user_name;
+    String userName;
     //标题
     String title;
     //详细内容
@@ -26,12 +26,12 @@ public class ContentForHomePage {
     //图片6url
     String PUrl6;
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String user_name) {
+        this.userName = user_name;
     }
 
     public String getTitle() {

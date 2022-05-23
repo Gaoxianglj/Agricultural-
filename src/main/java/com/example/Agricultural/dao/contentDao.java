@@ -16,9 +16,10 @@ public interface contentDao {
      * <p>根据用户填写内容新增一条内容表数据</p>
      *
      * @param form 用户ID,标题,详细内容。
+     * @param url 视频存储地址
      * @param time 发布时间
      */
-    public int insertToArticles(@Param("form") PutArticlesForm form,@Param("releaseTime") LocalDateTime time);
+    public int insertToArticles(@Param("form") PutArticlesForm form,@Param("releaseTime") LocalDateTime time,@Param("url")String url);
 
     /**
      * 查询所有内容。

@@ -16,6 +16,13 @@ import java.util.List;
 public class FansController {
     @Resource
     FansService fansService;
+
+    /**
+     *
+     * @param form 用户id
+     * @param errors 报错信息
+     * @return 粉丝列表
+     */
     @PostMapping("/fans/myfans")
     public List<User> MyFans(@RequestBody userIdForm form, Errors errors){
         if (errors.hasErrors()) {

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.Agricultural.dao.contentphotoDao">
+    <insert id="insert">
+        insert  into contentPhoto(content_id, PUrl1, PUrl2, PUrl3, PUrl4, PUrl5, PUrl6) VALUES
+            (
+             #{Id, jdbcType=INTEGER},
+             #{contentphoto.purl1},
+             #{contentphoto.purl2},
+             #{contentphoto.purl3},
+             #{contentphoto.purl4},
+             #{contentphoto.purl5},
+             #{contentphoto.purl6}
+            )
+    </insert>
+</mapper>
