@@ -5,10 +5,17 @@ package com.example.Agricultural.entity.Functional;
  * user_name,title,detail,videoUrl,PUrl1,PUrl2,PUrl3,PUrl3,PUrl4,PUrl5,PUrl6
  * */
 public class ContentForHomePage {
+    //作品Id
+    private int contentId;
+    //发布者ID
+    private int userId;
     //发布者用户名
     String userName;
     //标题
     String title;
+
+
+
     //详细内容
     String detail;
     //视频url
@@ -33,7 +40,21 @@ public class ContentForHomePage {
     public void setUserName(String user_name) {
         this.userName = user_name;
     }
+    public int getContentId() {
+        return contentId;
+    }
 
+    public void setContentId(int contentId) {
+        this.contentId = contentId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
     public String getTitle() {
         return title;
     }
