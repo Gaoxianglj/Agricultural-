@@ -1,7 +1,6 @@
 package com.example.Agricultural.service.impl;
 
 import com.example.Agricultural.dao.UserDao;
-import com.example.Agricultural.dao.fansDao;
 import com.example.Agricultural.entity.User;
 import com.example.Agricultural.service.FansService;
 import org.springframework.stereotype.Service;
@@ -34,5 +33,10 @@ public class FansServiceImpl implements FansService {
             userList.add(user);
         }
         return userList;
+    }
+
+    @Override
+    public List<Integer> myFocus(Integer userId) {
+        return fansDao.selectedMyFocus(userId);
     }
 }

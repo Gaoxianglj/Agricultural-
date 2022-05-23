@@ -11,4 +11,6 @@ public interface FansService {
      * @return 关注你的人的列表
      */
     public List<User> MyFans(Integer userId);
+
+    List<Integer> myFocus(Integer userId);
 }

@@ -31,4 +31,13 @@ public class FansController {
         }
        return fansService.MyFans(form.getUserId());
     }
+    @PostMapping("/fans/focus")
+    public List<Integer> myfocus(@RequestBody userIdForm form ,Errors errors)
+    {
+        if (errors.hasErrors()) {
+            // 当form中存在验证错误，则抛出业务错误，将验证信息输出。
+            throw new BusinessFailureException(errors);
+        }
+        return fansService.myFocus(form.getUserId());
+    }
 }

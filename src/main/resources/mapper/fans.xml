@@ -9,4 +9,7 @@
 <select id="SelectFansUserIdList" resultType="string">
         select fans_user_id from fans where up_user_id=#{userId,   jdbcType=INTEGER}
 </select>
+    <select id="selectedMyFocus" resultType="Integer">
+        select distinct up_user_id from fans where fans_user_id=#{ userId}
+    </select>
 </mapper>
