@@ -10,4 +10,6 @@ public interface CommentService {
     public void addComment(Comment c);
 
     List<CommentResult> selectAllComment(ContentForm contentForm);
+
+    List<CommentResult> getAllCommentByUserId(Integer userId);
 }

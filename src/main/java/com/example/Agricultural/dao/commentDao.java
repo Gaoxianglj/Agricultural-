@@ -14,4 +14,6 @@ public interface commentDao {
     public int addComment(@Param("comment") Comment c);
 
     List<CommentResult> selectAllComment(@Param("content") ContentForm c);
+
+    List<CommentResult> getAllCommentByUserId(@Param("userId") Integer userId);
 }

@@ -53,4 +53,14 @@ public class ContentController {
         }
         return contentService.SelectMyselfContent(form.getUserId());
     }
+    @PostMapping("/content/getAllLikenum")
+    public Integer getAllLikenum(@RequestBody userIdForm form,Errors errors)
+    {
+        if (errors.hasErrors()) {
+            // 当form中存在验证错误，则抛出业务错误，将验证信息输出。
+            throw new BusinessFailureException(errors);
+        }
+        return  contentService.getAllLikenum(form.getUserId());
+
+    }
 }

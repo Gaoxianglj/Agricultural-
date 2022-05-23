@@ -3,9 +3,7 @@ package com.example.Agricultural.service.impl;
 import com.example.Agricultural.dao.UserDao;
 import com.example.Agricultural.dao.contentDao;
 import com.example.Agricultural.dao.fansDao;
-import com.example.Agricultural.entity.Fans;
 import com.example.Agricultural.entity.Functional.ContentForHomePage;
-import com.example.Agricultural.requestdto.userIdForm;
 import com.example.Agricultural.service.ContentService;
 import org.springframework.stereotype.Service;
 
@@ -66,5 +64,10 @@ public class ContentServiceImpl implements ContentService {
     @Override
     public List<ContentForHomePage> SelectMyselfContent(Integer userId){
         return contentDao.SelectUpContent(userId);
+    }
+
+    @Override
+    public Integer getAllLikenum(Integer userId) {
+        return contentDao.getAllLikenum(userId);
     }
 }

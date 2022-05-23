@@ -1,6 +1,5 @@
 package com.example.Agricultural.service;
 
-import com.example.Agricultural.entity.Content;
 import com.example.Agricultural.entity.Functional.ContentForHomePage;
 
 import java.util.List;
@@ -25,4 +24,6 @@ public interface ContentService {
      * @return 内容串
      */
     List<ContentForHomePage> SelectMyselfContent(Integer userId);
+
+    Integer getAllLikenum(Integer userId);
 }

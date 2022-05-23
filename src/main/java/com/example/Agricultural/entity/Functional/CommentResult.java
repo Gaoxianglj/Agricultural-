@@ -17,6 +17,15 @@ public class CommentResult {
     private String commentContent;
     /*评论username*/
     private String userName;
+    private String title;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
 
     public Integer getCommentId() {
         return commentId;

@@ -21,4 +21,8 @@
         where content.user_id=#{UpUserId, jdbcType=INTEGER}
 
     </select>
+    <select id="getAllLikenum" resultType="Integer">
+        select sum(likenum) from content where user_id=#{userId}
+    </select>
+
 </mapper>

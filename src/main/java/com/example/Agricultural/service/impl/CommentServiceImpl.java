@@ -28,4 +28,10 @@ public class CommentServiceImpl implements CommentService {
     public List<CommentResult> selectAllComment(ContentForm contentForm) {
         return commentDao.selectAllComment(contentForm);
     }
+
+    @Override
+    public List<CommentResult> getAllCommentByUserId(Integer userId) {
+        System.out.println(userId);
+        return commentDao.getAllCommentByUserId(userId);
+    }
 }

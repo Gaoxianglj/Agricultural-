@@ -1,6 +1,5 @@
 package com.example.Agricultural.dao;
 
-import com.example.Agricultural.entity.Content;
 import com.example.Agricultural.entity.Functional.ContentForHomePage;
 import com.example.Agricultural.requestdto.PutArticlesForm;
 import org.apache.ibatis.annotations.Mapper;
@@ -32,4 +31,6 @@ public interface contentDao {
      * 查询其关注者的视频内容
      */
     public List<ContentForHomePage> SelectUpContent(@Param("UpUserId")Integer UpUserId);
+
+    Integer getAllLikenum(Integer userId);
 }
