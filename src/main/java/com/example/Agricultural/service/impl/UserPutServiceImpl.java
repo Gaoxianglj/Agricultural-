@@ -47,7 +47,7 @@ public class UserPutServiceImpl implements UserPutService {
         Contentphoto contentphoto=new Contentphoto();
         contentphoto.setContentId(form.getUserId());contentphoto.setPurl1(urls.get(0));contentphoto.setPurl2(urls.get(1));contentphoto.setPurl3(urls.get(2));contentphoto.setPurl4(urls.get(3));contentphoto.setPurl5(urls.get(4));contentphoto.setPurl6(urls.get(5));
 System.out.println("contentphoto的Id"+contentphoto.getContentId()+"url"+contentphoto.getPurl1());
-      int message=contentphotoDao.insert(contentId,contentphoto);
+      int message=contentphotoDao.insert(form.getUserId(), contentphoto);
 
       if(message<=0){
           throw new RuntimeException("数据库出错,添加失败");
