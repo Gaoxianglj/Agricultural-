@@ -73,6 +73,7 @@ System.out.println("contentphoto的Id"+contentphoto.getContentId()+"url"+content
             throw new RuntimeException("无文件") ;
         }
         String filename = file.getOriginalFilename(); //获取上传文件原来的名称
+        filename=filename+ LocalDateTime.now();
         String filePath = "/home/ubuntu/assets/";//    /home/ubuntu/assets/
         File temp = new File(filePath);
         if (!temp.exists()){
