@@ -2,6 +2,7 @@ package com.example.Agricultural.service.impl;
 
 import com.example.Agricultural.dao.UserDao;
 import com.example.Agricultural.entity.User;
+import com.example.Agricultural.requestdto.FansForm;
 import com.example.Agricultural.service.FansService;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +39,15 @@ public class FansServiceImpl implements FansService {
     @Override
     public List<Integer> myFocus(Integer userId) {
         return fansDao.selectedMyFocus(userId);
+    }
+
+    @Override
+    public void addFocus(FansForm form) {
+        fansDao.addFocus(form);
+    }
+
+    @Override
+    public void deleteFocus(FansForm form) {
+        fansDao.deleteFocus(form);
     }
 }

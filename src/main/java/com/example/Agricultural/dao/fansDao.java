@@ -1,5 +1,6 @@
 package com.example.Agricultural.dao;
 
+import com.example.Agricultural.requestdto.FansForm;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,4 +21,8 @@ public interface fansDao {
     public List<String> SelectFansUserIdList(@Param("userId") Integer userId);
 
     List<Integer> selectedMyFocus(Integer userId);
+
+    public void addFocus(FansForm form);
+
+    public void deleteFocus(FansForm form);
 }

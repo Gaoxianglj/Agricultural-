@@ -12,4 +12,11 @@
     <select id="selectedMyFocus" resultType="Integer">
         select distinct up_user_id from fans where fans_user_id=#{ userId}
     </select>
+    <insert id="addFocus">
+        insert  into fans(up_user_id,fans_user_id) values (#{upUserId},#{fansUserId})
+    </insert>
+
+    <delete id="deleteFocus">
+        delete from fans where fans_user_id=#{fansUserId} and up_user_id=#{upUserId}
+    </delete>
 </mapper>

@@ -2,6 +2,7 @@ package com.example.Agricultural.controller;
 
 import com.example.Agricultural.entity.User;
 import com.example.Agricultural.exception.BusinessFailureException;
+import com.example.Agricultural.requestdto.FansForm;
 import com.example.Agricultural.requestdto.userIdForm;
 import com.example.Agricultural.service.FansService;
 import org.springframework.validation.Errors;
@@ -39,5 +40,25 @@ public class FansController {
             throw new BusinessFailureException(errors);
         }
         return fansService.myFocus(form.getUserId());
+    }
+
+    @PostMapping("/fans/addFocus")
+    public void addFocus(@RequestBody FansForm form,Errors errors)
+    {
+        if (errors.hasErrors()) {
+            // 当form中存在验证错误，则抛出业务错误，将验证信息输出。
+            throw new BusinessFailureException(errors);
+        }
+        fansService.addFocus(form);
+    }
+
+    @PostMapping("/fans/deleteFocus")
+    public void deleteFocus(@RequestBody FansForm form,Errors errors)
+    {
+        if (errors.hasErrors()) {
+            // 当form中存在验证错误，则抛出业务错误，将验证信息输出。
+            throw new BusinessFailureException(errors);
+        }
+        fansService.deleteFocus(form);
     }
 }
