@@ -5,4 +5,9 @@
         insert into comment(content_id,user_id,comment_content) values(
         #{comment.contentId},#{comment.userId},#{comment.commentContent})
     </insert>
+
+    <select id="selectAllComment" resultType="com.example.Agricultural.entity.Functional.CommentResult">
+
+        select u.user_name,c.* from comment c join User u on c.user_id=u.user_id where content_id=#{content.contentId}
+    </select>
 </mapper>

@@ -1,7 +1,9 @@
 package com.example.Agricultural.controller;
 
 import com.example.Agricultural.entity.Comment;
+import com.example.Agricultural.entity.Functional.CommentResult;
 import com.example.Agricultural.exception.BusinessFailureException;
+import com.example.Agricultural.requestdto.ContentForm;
 import com.example.Agricultural.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class CommentController {
@@ -24,6 +27,18 @@ public class CommentController {
         }
         System.out.println(c.getContentId());
         commentService.addComment(c);
+    }
+    /*
+       查询该contentid的所有评论
+     */
+    @PostMapping("/comment/selectAllComment")
+    public List<CommentResult>selectAllComment(ContentForm contentForm, Errors errors)
+    {
+        if (errors.hasErrors()) {
+            // 当form中存在验证错误，则抛出业务错误，将验证信息输出。
+            throw new BusinessFailureException(errors);
+        }
+        return commentService.selectAllComment(contentForm);
     }
 
 }
