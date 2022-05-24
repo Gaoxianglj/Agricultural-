@@ -1,6 +1,7 @@
 package com.example.Agricultural.dao;
 
 import com.example.Agricultural.entity.User;
+import com.example.Agricultural.requestdto.UserForm;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -43,5 +44,7 @@ public interface UserDao {
      * @return 用户
      */
     User SelectUserForId(@Param("userId") Integer userId);
+
+    void updateUserPassword(UserForm userForm);
 }
 

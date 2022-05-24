@@ -33,12 +33,13 @@ public class CommentController {
        查询该contentid的所有评论
      */
     @PostMapping("/comment/selectAllComment")
-    public List<CommentResult>selectAllComment(ContentForm contentForm, Errors errors)
+    public List<CommentResult>selectAllComment(@RequestBody ContentForm contentForm, Errors errors)
     {
         if (errors.hasErrors()) {
             // 当form中存在验证错误，则抛出业务错误，将验证信息输出。
             throw new BusinessFailureException(errors);
         }
+        System.out.println(contentForm.getContentId());
         return commentService.selectAllComment(contentForm);
     }
     @PostMapping("/comment/getAllCommentByUserId")

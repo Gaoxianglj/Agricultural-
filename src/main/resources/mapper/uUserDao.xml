@@ -112,6 +112,8 @@
 <!--    <delete id="deleteById">-->
 <!--        delete from User where user_id = #{userId}-->
 <!--    </delete>-->
-
+        <update id="updateUserPassword">
+            update User set password=#{password} where user_id=#{userId}
+        </update>
 </mapper>
 

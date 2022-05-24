@@ -49,6 +49,7 @@ public class FansController {
             // 当form中存在验证错误，则抛出业务错误，将验证信息输出。
             throw new BusinessFailureException(errors);
         }
+
         fansService.addFocus(form);
     }
 

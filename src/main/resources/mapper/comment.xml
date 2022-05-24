@@ -8,7 +8,7 @@
 
     <select id="selectAllComment" resultType="com.example.Agricultural.entity.Functional.CommentResult">
 
-        select u.user_name,c.* from comment c join User u on c.user_id=u.user_id where content_id=#{content.contentId}
+        select u.user_name,c.* from comment c join User u on c.user_id=u.user_id where c.content_id=#{content.contentId}
     </select>
     <select id="getAllCommentByUserId" resultType="com.example.Agricultural.entity.Functional.CommentResult">
        select User.user_name,content.title,comment.* from comment
@@ -18,4 +18,5 @@
         (select content.content_id from User as u join content on content.user_id=u.user_id
         where u.user_id=#{userId} )
     </select>
+
 </mapper>

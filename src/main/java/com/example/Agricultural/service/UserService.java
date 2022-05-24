@@ -1,6 +1,7 @@
 package com.example.Agricultural.service;
 
 import com.example.Agricultural.entity.User;
+import com.example.Agricultural.requestdto.UserForm;
 
 public interface UserService {
     /**
@@ -8,4 +9,7 @@ public interface UserService {
      *
      */
     User[] SelectAllUser();
+
+    void updateUserPassword(UserForm userForm);
+
 }
