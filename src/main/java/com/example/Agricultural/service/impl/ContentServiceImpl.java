@@ -70,4 +70,10 @@ public class ContentServiceImpl implements ContentService {
     public Integer getAllLikenum(Integer userId) {
         return contentDao.getAllLikenum(userId);
     }
+
+    @Override
+    public int addLikeNum(Integer contentId) {
+
+        return contentDao.addLikeNum(contentId);
+    }
 }
