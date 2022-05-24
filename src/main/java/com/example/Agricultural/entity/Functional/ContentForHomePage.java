@@ -6,9 +6,9 @@ package com.example.Agricultural.entity.Functional;
  * */
 public class ContentForHomePage {
     //作品Id
-    private int contentId;
+    private Integer contentId;
     //发布者ID
-    private int userId;
+    private Integer userId;
     //发布者用户名
     String userName;
     //标题
@@ -40,7 +40,7 @@ public class ContentForHomePage {
     public void setUserName(String user_name) {
         this.userName = user_name;
     }
-    public int getContentId() {
+    public Integer getContentId() {
         return contentId;
     }
 
@@ -48,7 +48,7 @@ public class ContentForHomePage {
         this.contentId = contentId;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 

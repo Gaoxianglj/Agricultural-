@@ -17,7 +17,7 @@
         select content.content_id,content.user_id,user_name,title,detail,videoUrl,PUrl1,PUrl2,PUrl3,PUrl4,PUrl5,PUrl6 from (content join User user on content.user_id = user.user_id) left join contentPhoto cP on content.content_id = cP.content_id
     </select>
     <select id="SelectUpContent" resultType="com.example.Agricultural.entity.Functional.ContentForHomePage">
-        select user_name,title,detail,videoUrl,PUrl1,PUrl2,PUrl3,PUrl4,PUrl5,PUrl6 from (content join User user on content.user_id = user.user_id) left join contentPhoto cP on content.content_id = cP.content_id
+        select content.content_id,user.user_id,user_name,title,detail,videoUrl,PUrl1,PUrl2,PUrl3,PUrl4,PUrl5,PUrl6 from (content join User user on content.user_id = user.user_id) left join contentPhoto cP on content.content_id = cP.content_id
         where content.user_id=#{UpUserId, jdbcType=INTEGER}
 
     </select>
