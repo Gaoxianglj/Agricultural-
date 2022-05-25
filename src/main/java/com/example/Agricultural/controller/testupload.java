@@ -27,9 +27,8 @@ public class testupload {
             for (Map.Entry<String, MultipartFile> entry : map.entrySet()) {
                 if(entry.getKey().equals("image")){
                     System.out.println(entry.getValue().getOriginalFilename()+"图片");
-                }else {
-                    System.out.println(entry.getValue().getOriginalFilename()+"视频");
                 }
+                System.out.println(form.getUserId()+"信息");
                 // 自己的保存文件逻辑
       //         saveOrUpdateImageFile(feedback.getId(), entry.getKey(), entry.getValue());
             }
