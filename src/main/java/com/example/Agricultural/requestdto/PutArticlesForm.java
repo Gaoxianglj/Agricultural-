@@ -1,9 +1,8 @@
 package com.example.Agricultural.requestdto;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 public class PutArticlesForm {
     //用户ID
@@ -15,7 +14,9 @@ public class PutArticlesForm {
     //详细内容
     String detail;
 
+    String videoUrl;
 
+    List<String> photoUrls;
 
     public Integer getUserId() {
         return userId;
@@ -41,5 +42,19 @@ public class PutArticlesForm {
         this.detail = detail;
     }
 
+    public String getVideoUrl() {
+        return videoUrl;
+    }
 
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    public List<String> getPhotoUrls() {
+        return photoUrls;
+    }
+
+    public void setPhotoUrls(List<String> photoUrls) {
+        this.photoUrls = photoUrls;
+    }
 }

@@ -37,24 +37,18 @@ public class ContentServiceImpl implements ContentService {
      * @return 内容串
      */
     @Override
-    public List<Map<String, List<ContentForHomePage>>> SelectUpContent(Integer userId) {
+    public List<ContentForHomePage> SelectUpContent(Integer userId) {
         //获得关注人列表
         List<String> UPUserIdList=new ArrayList<>();
         if(fansDao.SelectUpUserIdList(userId).size()>0){
          UPUserIdList= fansDao.SelectUpUserIdList(userId);}
         else {throw new RuntimeException("无关注人");}
         System.out.println("关注人名单"+UPUserIdList);
-        Map<String,List<ContentForHomePage>> Map= new HashMap<>();
-        List<Map<String, List<ContentForHomePage>>> MapList=new ArrayList<>();
+        List<ContentForHomePage> contentForHomePageList=new ArrayList<>();
         for(String UpUserId:UPUserIdList){
-            String userName=userDao.SelectUserName(Integer.valueOf(UpUserId));
-            Map.put(userName,contentDao.SelectUpContent(Integer.valueOf(UpUserId)));
-            MapList.add(Map);
+            contentForHomePageList.addAll(contentDao.SelectUpContent(Integer.valueOf(UpUserId)));
         }
-        if(MapList.size()<=0){
-            MapList=null;
-        }
-        return MapList;
+        return contentForHomePageList;
     }
     /**
      * 查询自己发布的作品

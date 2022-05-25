@@ -8,29 +8,34 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class UpLoadController {
 
     @PostMapping("/upload")
-    public Object upload(@RequestParam("file") MultipartFile file){
+    public String upload(@RequestParam("file") MultipartFile file){
         return saveFile(file);
     }
     @PostMapping("/multiUpload")
-    public Object multiUpload(@RequestParam("file")MultipartFile[] files){
+    public List<String> multiUpload(@RequestParam("files")MultipartFile[] files){
+        List<String> urlList=new ArrayList<String>();
+
         System.out.println("文件的个数:"+files.length);
         for (MultipartFile f : files){
-            saveFile(f);
+            String filename=saveFile(f);
+            urlList.add(filename);
         }
-        return "ok";
+        return urlList;
     }
 
-    private Object saveFile(MultipartFile file){
+    private String saveFile(MultipartFile file){
         if (file.isEmpty()){
-            return "未选择文件";
+            throw new RuntimeException("无文件") ;
         }
         String filename = file.getOriginalFilename(); //获取上传文件原来的名称
-        String filePath = "/Users/gaoxiang/Documents/photo/";//    /home/ubuntu/assets/
+        String filePath = "/home/ubuntu/assets/";//    /home/ubuntu/assets/
         File temp = new File(filePath);
         if (!temp.exists()){
             temp.mkdirs();
@@ -45,6 +50,6 @@ public class UpLoadController {
             return "上传失败";
         }
 
-        return "ok";
+        return "http://43.138.15.210:8003/assets/"+filename;
     }
 }

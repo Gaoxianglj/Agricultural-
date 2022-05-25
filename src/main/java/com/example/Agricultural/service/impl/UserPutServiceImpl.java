@@ -27,25 +27,14 @@ public class UserPutServiceImpl implements UserPutService {
      * <p>根据用户填写内容注册用户信息</p>
      *
      * @param form 用户ID,标题,详细内容。
-     * @param videoFile 视频文件
-     * @param photoFiles 照片文件（多文件）
      */
     @Override
-    public void PutArticles(PutArticlesForm form,MultipartFile videoFile,MultipartFile[] photoFiles) {
+    public void PutArticles(PutArticlesForm form) {
      System.out.println("id\n"+form.getUserId()+"\n标题\n"+form.getDetail()+"\n内容\n"+form.getDetail());
-     List<String> urls=multiUpload(photoFiles);
-     for (String url:urls)
-     System.out.println("file"+url);
-
-     System.out.println(urls.size());
-     String video=saveFile(videoFile);
-     System.out.println("视频"+video);
-
-      int contentId=contentDao.insertToArticles(form, LocalDateTime.now(),video);
-
+      int contentId=contentDao.insertToArticles(form, LocalDateTime.now(),form.getVideoUrl());
       System.out.println("contentId"+form.getUserId());
         Contentphoto contentphoto=new Contentphoto();
-        contentphoto.setContentId(form.getUserId());contentphoto.setPurl1(urls.get(0));contentphoto.setPurl2(urls.get(1));contentphoto.setPurl3(urls.get(2));contentphoto.setPurl4(urls.get(3));contentphoto.setPurl5(urls.get(4));contentphoto.setPurl6(urls.get(5));
+        contentphoto.setContentId(form.getUserId());contentphoto.setPurl1(form.getPhotoUrls().get(0));contentphoto.setPurl2(form.getPhotoUrls().get(1));contentphoto.setPurl3(form.getPhotoUrls().get(2));contentphoto.setPurl4(form.getPhotoUrls().get(3));contentphoto.setPurl5(form.getPhotoUrls().get(4));contentphoto.setPurl6(form.getPhotoUrls().get(5));
 System.out.println("contentphoto的Id"+contentphoto.getContentId()+"url"+contentphoto.getPurl1());
       int message=contentphotoDao.insert(form.getUserId(), contentphoto);
 

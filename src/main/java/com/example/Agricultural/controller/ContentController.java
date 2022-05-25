@@ -34,7 +34,7 @@ public class ContentController {
      * @return 内容串
      */
     @PostMapping("/content/concerned")
-    public List<Map<String, List<ContentForHomePage>>> SelectUpContent(@RequestBody @Valid userIdForm form , Errors errors){
+    public List<ContentForHomePage> SelectUpContent(@RequestBody @Valid userIdForm form , Errors errors){
         if (errors.hasErrors()) {
             // 当form中存在验证错误，则抛出业务错误，将验证信息输出。
             throw new BusinessFailureException(errors);
