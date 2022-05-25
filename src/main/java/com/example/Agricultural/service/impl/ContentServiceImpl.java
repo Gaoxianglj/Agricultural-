@@ -37,19 +37,24 @@ public class ContentServiceImpl implements ContentService {
      * @return 内容串
      */
     @Override
-    public List<ContentForHomePage> SelectUpContent(Integer userId) {
+    public List<Map<String, List<ContentForHomePage>>> SelectUpContent(Integer userId) {
         //获得关注人列表
         List<String> UPUserIdList=new ArrayList<>();
         if(fansDao.SelectUpUserIdList(userId).size()>0){
          UPUserIdList= fansDao.SelectUpUserIdList(userId);}
         else {throw new RuntimeException("无关注人");}
         System.out.println("关注人名单"+UPUserIdList);
-        List<ContentForHomePage> contentForHomePageList=new ArrayList<>();
+        Map<String,List<ContentForHomePage>> Map= new HashMap<>();
+        List<Map<String, List<ContentForHomePage>>> MapList=new ArrayList<>();
         for(String UpUserId:UPUserIdList){
-           contentForHomePageList.addAll(contentDao.SelectUpContent(Integer.valueOf(UpUserId))) ;
-
+            String userName=userDao.SelectUserName(Integer.valueOf(UpUserId));
+            Map.put(userName,contentDao.SelectUpContent(Integer.valueOf(UpUserId)));
+            MapList.add(Map);
         }
-        return contentForHomePageList;
+        if(MapList.size()<=0){
+            MapList=null;
+        }
+        return MapList;
     }
     /**
      * 查询自己发布的作品
@@ -65,9 +70,10 @@ public class ContentServiceImpl implements ContentService {
     public Integer getAllLikenum(Integer userId) {
         return contentDao.getAllLikenum(userId);
     }
+
     @Override
     public int addLikeNum(Integer contentId) {
 
         return contentDao.addLikeNum(contentId);
     }
-    }
+}
