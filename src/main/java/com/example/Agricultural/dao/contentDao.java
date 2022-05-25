@@ -33,4 +33,5 @@ public interface contentDao {
     public List<ContentForHomePage> SelectUpContent(@Param("UpUserId")Integer UpUserId);
 
     Integer getAllLikenum(Integer userId);
+    int addLikeNum(Integer contentId);
 }

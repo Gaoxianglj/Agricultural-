@@ -26,4 +26,5 @@ public interface ContentService {
     List<ContentForHomePage> SelectMyselfContent(Integer userId);
 
     Integer getAllLikenum(Integer userId);
+    int addLikeNum(Integer contentId);
 }

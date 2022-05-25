@@ -2,6 +2,7 @@ package com.example.Agricultural.controller;
 
 import com.example.Agricultural.entity.Functional.ContentForHomePage;
 import com.example.Agricultural.exception.BusinessFailureException;
+import com.example.Agricultural.requestdto.ContentForm;
 import com.example.Agricultural.requestdto.userIdForm;
 import com.example.Agricultural.service.ContentService;
 import org.springframework.validation.Errors;
@@ -61,6 +62,17 @@ public class ContentController {
             throw new BusinessFailureException(errors);
         }
         return  contentService.getAllLikenum(form.getUserId());
-
+    }
+    @PostMapping("/content/addLikeNum")
+    public String addLikeNum(@RequestBody ContentForm form, Errors errors)
+    {
+        if (errors.hasErrors()) {
+            // 当form中存在验证错误，则抛出业务错误，将验证信息输出。
+            throw new BusinessFailureException(errors);
+        }
+        int r=contentService.addLikeNum(form.getContentId());
+        if(r==1)
+            return "success add";
+        return "fail add";
     }
 }
