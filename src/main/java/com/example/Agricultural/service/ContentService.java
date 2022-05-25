@@ -17,7 +17,7 @@ public interface ContentService {
      * @param userId 用户Id
      * @return 内容串
      */
-    public List<Map<String,List<ContentForHomePage>>> SelectUpContent(Integer userId);
+    public List<ContentForHomePage> SelectUpContent(Integer userId);
     /**
      * 查询自己发布的作品
      * @param userId 用户Id
